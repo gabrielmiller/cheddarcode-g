@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script>
+    $('li.blog').addClass('current');
+</script>
+
+<h2>Posts tagged <em>{{ tag }}</em></h2>
+{% for post in posts.object_list %}
+
+<article class="post">
+	<header><h3><a href="/g/blog/{{post.slug}}">{{ post.title }}</a></h3>
+		<p class="postinfo">Published on <time>{{ post.created }}</time> under 
+			{% for tag in post.tags.all %}<a href="/g/blog/tag/{{tag}}">{{tag}}</a>{% if not forloop.last %}, {% endif %}{% empty %} no categories{% endfor %}
+		</p>
+	</header>
+
+	<p>{{ post.body|safe|truncatewords_html:"150" }} <a href="/g/blog/{{post.slug}}">(Read full page)</a></p>
+
+</article>
+{% empty %}
+No blog postings found.
+
+{% endfor %}
+
+<!--<div class="pagination">
+	<span class="current">1</span>
+	<a href="#" title="2">2</a>
+	<a href="#" title="3">3</a>
+	<a href="#" title=">">></a>
+	<span class="extend">...</span>
+	<a href="#" title="last">last</a>
+	<div class="clear"></div>
+</div>-->
+
+<div id="pagination">
+    {% if posts.object_list and posts.paginator.num_pages > 1 %}
+        {% if posts.number > 1%}
+        <a href="?page={{ posts.previous_page_number}}">Previous page</a>
+        {% endif %}
+        
+    {{ posts.number }}/{{ posts.paginator.num_pages }}
+    
+        {% if posts.number < posts.paginator.num_pages %}
+        <a href="?page={{ posts.next_page_number}}">Next Page</a>
+        {% endif %}
+    {% endif %}
+</div>
+
+        <div class="clear"></div>
+</div>
+</section>
+
+{% endblock %}   
+
+{% block sidebar %}
+{% include "sidebar.html" %}
+{% endblock %}

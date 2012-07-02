@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script>
+    $('li.contact').addClass('current');
+    $('#main').css('margin','0 20px');
+</script>
+
+    {% if success %}
+    <h2>Your message was sent!</h2>
+    <p>From: {{ email }}</p>
+    <p>Message: {{ text }}</p>
+    {% else %}
+    <form id="contactform" action="." method="POST">
+    <legend>Leave me a message!</legend>
+    {% csrf_token %}
+    {{ contact_form.as_p }}
+    <div id="buttongroup">
+    <button type = "submit" value="Send">Submit</button>
+    <button type = "reset" value="Reset">Reset</button>
+    </div>
+    </form>
+    {% endif %}
+
+{% endblock %}

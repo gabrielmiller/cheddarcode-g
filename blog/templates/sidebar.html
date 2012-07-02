@@ -1,0 +1,18 @@
+<aside>
+<div id="sidebarwrap">
+    <h2>About Me</h2>
+    <p>Read about my adventures learning web software! I am interested in most things web development and open source. Currently I'm learning Python, PHP, and Javascript. Here's hoping I pique your curiosity! <a href="/g/">(read more)</a></p>
+    <h2>Categories</h2>
+    <ul>
+        {% for tag in tags %}
+        <li><a href="/g/blog/tag/{{tag}}">{{tag}}</a></li>
+        {% endfor %}
+    </ul>
+    <h2>Archives</h2>
+    <ul>
+        {% for post in archives %}
+        <li><a href="/g/blog/{{ post.slug }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+</aside>
