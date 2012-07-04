@@ -10,6 +10,9 @@ def home(request):
 def resume(request):
     return render_to_response("resume.html")
 
+def portfolio(request):
+    return render_to_response("portfolio.html")
+
 def contact(request):
     success = False
     email = ''

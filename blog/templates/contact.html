@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block contact %}
+class="current"
+{% endblock %}
 
-<script>
-    $('li.contact').addClass('current');
-    $('#main').css('margin','0 20px');
-</script>
+{% block content %}
 
     {% if success %}
     <h2>Your message was sent!</h2>

@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block blog %}
+class="current"
+{% endblock %}
 
-<script>
-    $('li.blog').addClass('current');
-</script>
+{%block blog2%}blog{%endblock%}
+
+{% block content %}
 
 {% for post in entries.object_list %}
 

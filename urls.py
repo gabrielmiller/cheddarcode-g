@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^blog/', include('blog.urls')),
     url(r'^resume/', 'crane.views.resume'),
     url(r'^contact/', 'crane.views.contact'),
+    url(r'^portfolio/', 'crane.views.portfolio'),
     #url(r'^favicon\.ico$','django.views.generic.simple.redirect_to',{'url':'http://www.cheddarcode.com/g/favicon.ico'}),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
