@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block portfolio %}
+class="current"
+{% endblock %}
+
+{% block content %}
+
+<center><div id="head"><p>You can find the code for all of these projects, among others, on my github page at <a href='http://www.github.com/gmiller2007'>http://www.github.com/gmiller2007</a>.</p></div></center><br>
+<article class="sample">
+<header>
+    <div id="thumb">
+        <img src="http://www.cheddarcode.com/g/img/thumb_rotencrypt.png">
+        <div id="caption">Rotation Encryption</div>
+    </div>
+</header>
+<p>This script was a learning experience on data types and object-oriented programming in Python. I made a first version and then revised it about a month later, making sure to include my early critiques. Text is entered, broken into 8 character chunks, and transformed to a multidimensional list of the ASCII binary values of each character. The multidimensional list is viewed as a square; the output is an interpretation of that same square rotated by 90 degrees. The lists are then concatenated, regrouped, and packaged back into 8 character chunks, giving an encrypted version of the original text.</p>
+</article>
+
+<article class="sample">
+<header>
+    <div id="thumb">
+        <img src="http://www.cheddarcode.com/g/img/thumb_shoutwall.png">
+        <div id="caption">Shoutwall</div>
+    </div>
+</header>
+<p>This site is a basic shoutwall where users enter text, with a limited selection of available HTML formatting, and it is posted to a public shoutwall. Posts are authored without a login system, based upon any name of your choosing <em>or</em> the user may post anonymously. This site is written in PHP and uses MySQL. MySQLi was used for the database queries.</p>
+</article>
+
+<article class="sample">
+<header>
+    <div id="thumb">
+        <img src="http://www.cheddarcode.com/g/img/thumb_imgboard.png">
+        <div id="caption">Imageboard</div>
+    </div>
+</header>
+<p>This site is a similar site to the shoutwall but, instead of text, users upload and share images with one another. This site was built with Python and Google App Engine. The data is stored using Google Storage Engine, a NoSQL database. I used Jinja2 for the templating on this site(which I found to be nicer than django).</p>
+</article>
+
+<article class="sample">
+<header>
+    <div id="thumb">
+        <img src="http://www.cheddarcode.com/g/img/thumb_critique.png">
+        <div id="caption">Writing critiques</div>
+    </div>
+</header>
+<p>I wanted another, more comprehensive project to demonstrate using MySQL and PHP together, so I put together a more complex website with a login system, user driven content, and administration. Users can sign up and post pieces of writing to be critiqued. The administrator can log in and respond to the writings and decide whether or not to publish the piece and critique. I built this site with PHP and MySQL. Again, MySQLi was used for the database queries. </p>
+</article>
+
+<article class="sample">
+<header>
+    <div id="thumb">
+        <img src="http://www.cheddarcode.com/g/img/thumb_blog.png">
+        <div id="caption">My blog</div>
+    </div>
+</header>
+<p>This very website runs on Django, and was one of my earliest adventures into Python's web development ecosystem. Django provides a very nice administration system and helped to quickly prototype my site and try different models and layouts. My blog showcases dynamic blog posts that I write along with some static pages and a form that emails me. I use a third party application to handle metatags called <em>Taggit</em>. The database behind my blog is MySQL.</p>
+</article>
+{% endblock %}

@@ -8,10 +8,11 @@
         <li><a href="/g/blog/tag/{{tag}}">{{tag}}</a></li>
         {% endfor %}
     </ul>
+
     <h2>Archives</h2>
     <ul>
         {% for post in archives %}
-        <li><a href="/g/blog/{{ post.slug }}">{{ post.title }}</a></li>
+        <li><a date="{{post.created|date:"Y-m-d"}}" href="/g/blog/{{ post.slug }}">{{post.title}}</a></li>
         {% endfor %}
     </ul>
 </div>
