@@ -9,22 +9,36 @@
         {% endfor %}
     </ul>
 
+    <script type="text/javascript" src="http://127.0.0.1/~batman/js/jquery.js"/></script>
+    <script type="text/javascript" src="http://127.0.0.1/~batman/js/jquery.easing.js"/></script>
+    <script type="text/javascript" src="http://127.0.0.1/~batman/js/jquery.collapse.js"/></script>
+
+<script type="text/javascript">
+            $(function(){
+                $('#collapser').jqcollapse({
+                   slide: false,
+                   speed: 1000,
+                   easing: false 
+                });
+            });
+        </script>
+
     <h2>Archives</h2>
-    <ul>
+    <ul id="collapser">
         {% regroup archives by created|date:"Y" as postyears %}
             {% for created in postyears %}
-                <li>{{ created.grouper }}</li>
+                <li>{{ created.grouper }}
                 <ul>
                 {% regroup created.list by created|date:"F" as postmonths %}
                     {% for created in postmonths %}
-                    <li>{{ created.grouper }}</li>
+                    <li>{{ created.grouper }}
                     <ul>
                         {% for object in created.list %}
-                        <li>{{object.created|date:"dS"}} -  {{object.title}}</li>
+                        <li><a href="/g/blog/{{ object.slug }}">{{object.title}}</a></li>
                         {% endfor %}
-                    </ul>
+                    </ul></li>
                     {% endfor %}
-                </ul>
+                </ul></li>
             {% endfor %}
         </ul>
         <!--<ul>
