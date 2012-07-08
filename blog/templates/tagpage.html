@@ -26,8 +26,8 @@ No blog postings found.
 
 {% endfor %}
 
-<div id="pagination">
     {% if entries.object_list and entries.paginator.num_pages > 1 %}
+<div id="pagination">
         {% if entries.number > 1%}
         <a href="?page={{ entries.previous_page_number}}">Previous page</a>
         {% endif %}
@@ -37,8 +37,8 @@ No blog postings found.
         {% if entries.number < entries.paginator.num_pages %}
         <a href="?page={{ entries.next_page_number}}">Next Page</a>
         {% endif %}
-    {% endif %}
 </div>
+    {% endif %}
 
         <div class="clear"></div>
 </div>
