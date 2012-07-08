@@ -11,9 +11,26 @@
 
     <h2>Archives</h2>
     <ul>
+        {% regroup archives by created|date:"Y" as postyears %}
+            {% for created in postyears %}
+                <li>{{ created.grouper }}</li>
+                <ul>
+                {% regroup created.list by created|date:"F" as postmonths %}
+                    {% for created in postmonths %}
+                    <li>{{ created.grouper }}</li>
+                    <ul>
+                        {% for object in created.list %}
+                        <li>{{object.created|date:"dS"}} -  {{object.title}}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </ul>
+        <!--<ul>
         {% for post in archives %}
-        <li><a date="{{post.created|date:"Y-m-d"}}" href="/g/blog/{{ post.slug }}">{{post.title}}</a></li>
+        <li><a href="/g/blog/{{ post.slug }}">{{post.title}} - {{post.created|date:"Y-m-d"}}</a></li>
         {% endfor %}
-    </ul>
+    </ul>-->
 </div>
 </aside>
