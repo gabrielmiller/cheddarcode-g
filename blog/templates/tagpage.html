@@ -26,26 +26,16 @@ No blog postings found.
 
 {% endfor %}
 
-<!--<div class="pagination">
-	<span class="current">1</span>
-	<a href="#" title="2">2</a>
-	<a href="#" title="3">3</a>
-	<a href="#" title=">">></a>
-	<span class="extend">...</span>
-	<a href="#" title="last">last</a>
-	<div class="clear"></div>
-</div>-->
-
 <div id="pagination">
-    {% if posts.object_list and posts.paginator.num_pages > 1 %}
-        {% if posts.number > 1%}
-        <a href="?page={{ posts.previous_page_number}}">Previous page</a>
+    {% if entries.object_list and entries.paginator.num_pages > 1 %}
+        {% if entries.number > 1%}
+        <a href="?page={{ entries.previous_page_number}}">Previous page</a>
         {% endif %}
-        
-    {{ posts.number }}/{{ posts.paginator.num_pages }}
     
-        {% if posts.number < posts.paginator.num_pages %}
-        <a href="?page={{ posts.next_page_number}}">Next Page</a>
+    <div id="footerpage"> Page {{ entries.number }} of {{ entries.paginator.num_pages }}</div>
+        
+        {% if entries.number < entries.paginator.num_pages %}
+        <a href="?page={{ entries.next_page_number}}">Next Page</a>
         {% endif %}
     {% endif %}
 </div>
