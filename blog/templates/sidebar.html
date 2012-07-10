@@ -10,11 +10,10 @@
         {% endfor %}
     </ul>
 
-<!--<script type="text/javascript" src="http://www.cheddarcode.com/g/js/jquery.js"/></script>
+<!--
     <script type="text/javascript" src="http://www.cheddarcode.com/g/js/jquery.easing.js"/></script>
     <script type="text/javascript" src="http://www.cheddarcode.com/g/js/jquery.collapse.js"/></script>
 -->
-    <script type="text/javascript" src="http://127.0.0.1/~batman/js/jquery.js"></script>
     <script type="text/javascript" src="http://127.0.0.1/~batman/js/jquery.easing.js"></script>
     <script type="text/javascript" src="http://127.0.0.1/~batman/js/jquery.collapse.js"></script>
 
@@ -43,7 +42,7 @@
                     <li>{{ created.grouper }}
                     <ul>
                         {% for object in created.list %}
-                        <li><a class="archivelink" href="/g/blog/{{ object.slug }}">{{object.title}}</a></li>
+                        <li><a class="archivelink" href="/g/blog/post/{{ object.slug }}">{{object.title}}</a></li>
                         {% endfor %}
                     </ul></li>
                     {% endfor %}

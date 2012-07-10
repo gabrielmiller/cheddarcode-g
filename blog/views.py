@@ -4,7 +4,7 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage, PageNotAnIn
 from django.core.exceptions import ObjectDoesNotExist
 
 def tagpage(request, tag):
-    posts = Post.objects.order_by('-created').filter(tags__name=tag)
+    posts = Post.objects.all().order_by('-created').filter(tags__name=tag)
     tags = Post.tags.all()
     archives = Post.objects.all().order_by('-created')
     paginator = Paginator(posts, 4)
@@ -38,6 +38,34 @@ def bloglist(request):
     except PageNotAnInteger:
         entries = paginator.page(1)
     return render_to_response("blog.html", dict(entries=entries, user=request.user, archives=archives, tags=tags))
+
+def ajaxtag(request, tag):
+    entries = Post.objects.all().order_by('-created').filter(tags__name=tag)
+    paginator = Paginator(entries, 4)
+    try:
+        page = int(request.GET.get("page", "1"))
+    except ValueError: page = 1
+    try:
+        entries = paginator.page(page)
+    except (InvalidPage, EmptyPage):
+        entries = paginator.page(paginator.num_pages)
+    except PageNotAnInteger:
+        entries = paginator.page(1)
+    return render_to_response("tagpage_ajax.html", dict(entries=entries, user=request.user, tag=tag))
+
+def ajax(request):
+    entries = Post.objects.all().order_by('-created')
+    paginator = Paginator(entries, 4)
+    try:
+        page = int(request.GET.get("page", "1"))
+    except ValueError: page = 1
+    try:
+        entries = paginator.page(page)
+    except (InvalidPage, EmptyPage):
+        entries = paginator.page(paginator.num_pages)
+    except PageNotAnInteger:
+        entries = paginator.page(1)
+    return render_to_response("blog_ajax.html", dict(entries=entries, user=request.user))
 
 def pkview(request, pk):
     archives = Post.objects.all().order_by('-created')

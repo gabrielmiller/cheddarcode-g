@@ -19,16 +19,10 @@ class BlogFeed(Feed):
 
 urlpatterns = patterns('blog.views',
     url(r'^$', 'bloglist'),
-               #            queryset=Post.objects.all().order_by("-created")[:2],
-               #            template_name="blog.html")),
-    url(r'^(?P<pk>\d+)$', 'pkview'),#DetailView.as_view(
-                          # model=Post,
-                          # template_name="post.html")),
-    url(r'^(?P<slug>[\w-]+)$','postview'),
-    #url(r'^archives/$', ListView.as_view(
-    #                       queryset=Post.objects.all().order_by("-created"),
-    #                       template_name="archives.html")),
-    url(r'^tag/(?P<tag>\w+)$', 'tagpage'),
     url(r'^feed/$', BlogFeed()),
-                           
+    url(r'^ajax/$', 'ajax'),
+    url(r'^ajaxtag/(?P<tag>\w+)$', 'ajaxtag'),
+    url(r'^pk/(?P<pk>\d+)$', 'pkview'),
+    url(r'^post/(?P<slug>[\w-]+)$','postview'),
+    url(r'^tag/(?P<tag>\w+)$', 'tagpage'),
 )
