@@ -17,34 +17,31 @@ No blog postings found.
 
 {% endfor %}
 
-<div id='result{{entries.next_page_number}}'></div>
+<div id='result{{posts.next_page_number}}' ></div>
 
-{% if not entries.has_next %}
-<script type="text/javascript" charset="utf-8">        
-$(document).ready(function () {
-    $("#pagination").css("display", "none");
-});
-</script>
-{% endif %}
-
-
-{% if entries.object_list and entries.paginator.num_pages > 1 %}
-
+    {% if posts.object_list and posts.paginator.num_pages > 1 %}
 <div id="pagination">
+        {% if posts.number > 1%}
+        <a class="prevpage" href="?page={{ posts.previous_page_number}}">Previous page</a>
+        {% endif %}
 
-    <div id="footerpage"> Page {{ entries.number }} of {{ entries.paginator.num_pages }}</div>
-        
-        {% if entries.number < entries.paginator.num_pages %}
+    <div id="footerpage"> Page {{ posts.number }} of {{ posts.paginator.num_pages }}</div>
+
+        {% if posts.number < posts.paginator.num_pages %}
 
 <script type="text/javascript" charset="utf-8">        
 $(document).ready(function () {
-    $("#page{{entries.next_page_number}}").click(function () {
+    $("#page{{posts.next_page_number}}").removeAttr("href");
+    $("#page{{posts.next_page_number}}").click(function () {
         $("#pagination").css("display", "none");
-        $("#result{{entries.next_page_number}}").load("/g/blog/ajaxtag/{{tag}}?page={{entries.next_page_number}}");
+        $("#result{{posts.next_page_number}}").load("/g/blog/ajaxtag/{{tag}}?page={{posts.next_page_number}}");
             });
         });
 </script>
 
-        <a class="nextpage" id="page{{entries.next_page_number}}">Next Page</a>
+        <a class="nextpage" id="page{{posts.next_page_number}}" href="?page={{posts.next_page_number}}">Next Page</a>
+
         {% endif %}
+</div>
     {% endif %}
+
