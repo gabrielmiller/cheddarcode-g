@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block blog %}
+class="current"
+{% endblock %}
+
+{%block blog2%}blog{%endblock%}
+
+{% block content %}
+
+<h2>Posts tagged <em>{{ tag }}</em></h2>
+{% for post in posts.object_list %}
+
+<article class="post">
+	<header><h3><a href="/g/blog/post/{{post.slug}}">{{ post.title }}</a></h3>
+		<p class="postinfo">Published on <time>{{ post.created }}</time> under 
+			{% for tag in post.tags.all %}<a href="/g/blog/tag/{{tag}}">{{tag}}</a>{% if not forloop.last %}, {% endif %}{% empty %} no categories{% endfor %}
+		</p>
+	</header>
+
+	<p>{{ post.body|safe|truncatewords_html:"150" }} <a href="/g/blog/post/{{post.slug}}">(Read full page)</a></p>
+
+</article>
+{% empty %}
+No blog postings found.
+
+{% endfor %}
+
+<div id='result{{posts.next_page_number}}' ></div>
+
+    {% if posts.object_list and posts.paginator.num_pages > 1 %}
+<div id="pagination">
+        {% if posts.number > 1%}
+        <a class="prevpage" href="?page={{ posts.previous_page_number}}">Previous page</a>
+        {% endif %}
+    
+    <div id="footerpage"> Page {{ posts.number }} of {{ posts.paginator.num_pages }}</div>
+        
+        {% if posts.number < posts.paginator.num_pages %}
+
+<script type="text/javascript" charset="utf-8">        
+$(document).ready(function () {
+    $("#page{{posts.next_page_number}}").removeAttr("href");
+    $("#page{{posts.next_page_number}}").click(function () {
+        $("#pagination").css("display", "none");
+        $("#result{{posts.next_page_number}}").load("/g/blog/ajaxtag/{{tag}}?page={{posts.next_page_number}}");
+            });
+        });
+</script>
+
+        <a class="nextpage" id="page{{posts.next_page_number}}" href="?page={{posts.next_page_number}}">Next Page</a>
+
+        {% endif %}
+</div>
+    {% endif %}
+
+        <div class="clear"></div>
+</div>
+</section>
+
+{% endblock %}   
+
+{% block sidebar %}
+{% include "sidebar.html" %}
+{% endblock %}
