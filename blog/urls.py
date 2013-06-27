@@ -18,9 +18,12 @@ class BlogFeed(Feed):
         return u"/blog/%d" % item.id #update url
 
 urlpatterns = patterns('blog.views',
-    url(r'^$', 'bloglist'),
+    url(r'^$', 'archive_view'), #archive_view
     url(r'^feed/$', BlogFeed()),
-    url(r'^pk/(?P<pk>\d+)$', 'pkview'),
-    url(r'^post/(?P<slug>[\w-]+)$','postview'),
-    url(r'^tag/(?P<tag>\w+)$', 'tagpage'),
+    url(r'^(?P<year>\d{4})/(?P<slug>[\w-]+$', 'article_view'), #article_view
+    url(r'^(?P<tag>\w+)$', 'tag_view'), #tag_view
+    #url(r'^$', 'bloglist'),
+    #url(r'^pk/(?P<pk>\d+)$', 'pkview'),
+    #url(r'^post/(?P<slug>[\w-]+)$','postview'),
+    #url(r'^tag/(?P<tag>\w+)$', 'tagpage'),
 )
