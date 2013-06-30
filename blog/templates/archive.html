@@ -1,27 +1,13 @@
 {% extends "base.html" %}
 
-vvvv This is ambiguous if the front page blog post AND individual archived posts render in this view.
 {% block archive %}
 class="current"
 {% endblock %}
 
 {% block content %}
 
-<!--
-{% for post in entries.object_list %}
-<div class="post">
-	<header><h3>[{{ post.created }}] <h3><a href="/blog/{{post.year}}/{{post.slug}}">{{ post.title }}</a></h3>
-		<p class="postinfo">
-			{% for tag in post.tags.all %} <a href="/blog/tag/{{tag}}">{{tag}}</a>{% if not forloop.last %}, {% endif %}{% empty%} no categories{% endfor %}
-		</p>
-	</header>
-{% empty %}
-No blog postings found.
-{% endfor %}
--->
-
 <ul id="collapser">
-    {% regroup archives by created|date:"Y" as postyears %}
+    {% regroup posts by created|date:"Y" as postyears %}
     {% for created in postyears %}
         <li>{{ created.grouper }}
         <ul>
@@ -30,7 +16,7 @@ No blog postings found.
             <li>{{ created.grouper }}
             <ul>
                 {% for object in created.list %}
-                <li><a href="/blog/{{ object.year }}/{{ object.slug }}">{{object.title}}</a></li>
+                <li>[{{ object.created|date:"m-d" }}] <a href="/blog/{{ object.created|date:"Y" }}/{{ object.slug }}">{{object.title}}</a></li>
                 {% endfor %}
             </ul></li>
         {% endfor %}
@@ -38,8 +24,6 @@ No blog postings found.
     {% endfor %}
 </ul>
 
-
-</div>
 {% endblock %}   
 
 {% block includes %}
@@ -48,10 +32,10 @@ No blog postings found.
     <script type="text/javascript">
         $(document).ready(
             $('#collapser').jqcollapse({
-               slide: true,
+               slide: false,
                speed: 1000,
                easing: false 
-            });
+            })
         );
     </script>
 {% endblock %}

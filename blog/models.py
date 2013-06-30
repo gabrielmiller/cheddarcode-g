@@ -6,7 +6,6 @@ class Post(models.Model):
     slug = models.SlugField(max_length=50)
     body = models.TextField()
     created = models.DateTimeField()
-    year = models.CharField(max_length=4)
     tags = TaggableManager()
 
     def __unicode__(self):
