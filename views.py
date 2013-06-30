@@ -1,12 +1,11 @@
 from django.shortcuts import render_to_response
-
-#from blog.models import Post
+from blog.models import Post
 #from blog.forms import ContactForm
 #from django.template import RequestContext
 #from django.core.mail import send_mail
 
 def home(request):
-    blog.views.postview() #Render the most recent post
+#    blog.views.postview() #Render the most recent post
 
 def about(request):
     return render_to_response("about.html")
