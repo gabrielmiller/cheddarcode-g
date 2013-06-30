@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block projects %}
+class="current"
+{% endblock %}
+
+{% block content %}
+
+<center><div id="head"><p>You can find the code for all of these projects, among others, on my github page at <a href='http://www.github.com/gmiller2007'>http://www.github.com/gmiller2007</a>.</p></div></center><br>
+
+<article class="sample">
+<header>
+    <div id="thumb">
+        <a href="http://www.github.com/gmiller2007/ContactTracker">
+        <img src="http://www.cheddarcode.com/g/img/thumb_contacttracker.png">
+        <div id="caption">Contact Tracker</div>
+        </a>
+    </div>
+</header>
+<p>This site is a tool I wrote for my company to track landowners that we contact regarding property permission for field work. We had been using pen and paper however the system was awkward and not easily shared between offices. I made a website where we can add profiles and landowners' information in order to solve our problems. This site uses PHP and MySQL, as well as Twitter bootstrap for the css and widgets, as well as a smidgen of jQuery and jQueryUI.</p><br>
+<p>See a live instance of it <a href="http://www.cheddarcode.com/p/ex13/search.php?q=Miller">here</a>.</p>
+</article>
+
+<article class="sample">
+<header>
+    <div id="thumb">
+        <a href="http://www.github.com/gmiller2007/PHP-Stream-Mapping">
+        <img src="http://www.cheddarcode.com/g/img/thumb_streammap.png">
+        <div id="caption">Stream Mapping</div>
+        </a>
+    </div>
+</header>
+<p>This site is a data visualization for information my work collects. It is an automation of paper layouts that we already are creating in an effort to save time. The site is written in PHP and uses the html5 canvas and a JavaScript mapping library called Leaflet. I used Twitter's bootstrap for css and javascript widgets. The data was stored in a postgres database, but I changed it to MySQL in order to host it on my webhost.</p><br>
+<p>See a live instance of it <a href="http://www.cheddarcode.com/p/ex12/">here</a>.</p>
+</article>
+
+<!--
+<article class="sample">
+<header>
+    <div id="thumb">
+        <a href="http://www.github.com/gmiller2007/gae-imageboard">
+        <img src="http://www.cheddarcode.com/g/img/thumb_imgboard.png">
+        <div id="caption">Imageboard</div>
+        </a>
+    </div>
+</header>
+<p>This site is an imageboard where users may upload and share images with one another. This site was built with Python and Google App Engine. The data is stored using Google Storage Engine, a NoSQL database. I used Jinja2 for the templating on this site.</p><br>
+<p>See a live instance of it <a href="http://gm-img.appspot.com/">here</a>.
+</article>
+
+<article class="sample">
+<header>
+    <div id="thumb">
+        <a href="http://www.github.com/gmiller2007/PHP-Writing-Critique">
+        <img src="http://www.cheddarcode.com/g/img/thumb_critique.png">
+        <div id="caption">Writing critiques</div>
+        </a>
+    </div>
+</header>
+<p>I wanted another, more comprehensive project to demonstrate using MySQL and PHP together, so I put together a more complex website with a login system, user driven content, and administration. Users can sign up and post pieces of writing to be critiqued. The administrator can log in and respond to the writings and decide whether or not to publish the piece and critique. I built this site with PHP and MySQL. MySQLi was used for the database queries. </p><br>
+<p>See a live instance of it <a href="http://www.cheddarcode.com/p/ex10/">here</a>.</p>
+</article>
+-->
+<article class="sample">
+<header>
+    <div id="thumb">
+        <a href="http://www.github.com/gmiller2007/cheddarcode-g">
+        <img src="http://www.cheddarcode.com/g/img/thumb_blog.png">
+        <div id="caption">My blog</div>
+        </a>
+    </div>
+</header>
+<p>This very website runs on Django, and was one of my earliest adventures into Python's web development ecosystem. Django provides a very nice MVC-style architecture, which helped to cleanly and quickly prototype my site. I use a third party application to handle metatags called <i>Taggit</i>.
+</article>
+
+<!--
+<article class="sample">
+<header>
+    <div id="thumb">
+        <a href="http://www.github.com/gmiller2007/PHP-Shoutwall">
+        <img src="http://www.cheddarcode.com/g/img/thumb_shoutwall.png">
+        <div id="caption">Shoutwall</div>
+        </a>
+    </div>
+</header>
+<p>This site is a basic shoutwall where users enter text, with a limited selection of available HTML formatting, and it is posted to a public shoutwall. Posts are authored without a login system, based upon any name of your choosing <em>or</em> the user may post anonymously. This site is written in PHP and uses MySQL. MySQLi was used for the database queries.</p><br>
+<p>See a live instance of it <a href="http://www.cheddarcode.com/p/ex11/">here</a>.</p>
+</article>
+-->
+
+<article class="sample">
+<header>
+    <div id="thumb">
+        <a href="http://www.github.com/gmiller2007/Rotation-encryption">
+        <img src="http://www.cheddarcode.com/g/img/thumb_rotencrypt.png">
+        <div id="caption">Rotation Encryption</div>
+        </a>
+    </div>
+</header>
+<p>This script was a learning experience on data types and object-oriented programming in Python. I made a first version and then revised it about a month later, making sure to include my early critiques. Text is entered, broken into 8 character chunks, and transformed to a multidimensional list of the ASCII binary values of each character. The multidimensional list is viewed as a square; the output is an interpretation of that same square rotated by 90 degrees. The lists are then concatenated, regrouped, and packaged back into 8 character chunks, giving an encrypted version of the original text.</p>
+</article>
+{% endblock %}
