@@ -15,7 +15,7 @@ class BlogFeed(Feed):
     def item_description(self, item):
         return item.body
     def item_link(self, item):
-        return u"/blog/%d" % item.id #update this url
+        return u"http://www.gabrielmiller.org/archive/%d/%s" % (item.created.year, item.slug)
 
 urlpatterns = patterns('blog.views',
     url(r'^$', 'archive_view'),
