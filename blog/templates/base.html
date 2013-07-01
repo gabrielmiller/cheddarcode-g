@@ -25,13 +25,15 @@
 
 <div id="pagewrapper">
 <section id="header">
-	<p id="title">L. Gabriel Miller</p>
+	<p id="title"><a href="/">L. Gabriel Miller</a></p>
 	<nav id="navigation">
 		<ul>
-            <li {%block blog%}{%endblock%}class="blog"><a href="/">Blog</a></li>
-			<li {%block archive%}{%endblock%}class="archive"><a href="/archive">Archive</a></li>
-			<li {%block projects%}{%endblock%}class="projects"><a href="/projects">Projects</a></li>
-			<li {%block about%}{%endblock%}class="about"><a href="/about">About</a></li>
+            <!--
+            <li class="blog{%if page == "blog" %} current{%endif%}"><a href="/">Blog</a></li>
+            -->
+            <li class="archive{%if page == "archive" %} current{%endif%}"><a href="/archive">Archive</a></li>
+            <li class="projects{%if page == "projects" %} current{%endif%}"><a href="/projects">Projects</a></li>
+            <li class="abouts{%if page == "about" %} current{%endif%}"><a href="/about">About</a></li>
 		</ul>
 	</nav>
 </section>

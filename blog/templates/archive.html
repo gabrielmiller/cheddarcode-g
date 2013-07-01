@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
-{% block archive %}
-class="current"
-{% endblock %}
-
 {% block content %}
 
+<h4>Categories</h4>
+<ul id="tags">
+    {% for tag in tags %}
+    <li><a href="/archive/tags/{{ tag }}">{{ tag }}</a></li>
+    {% endfor %}
+</ul>
+
+<h4>By date:</h4>
 <ul id="collapser">
     {% regroup posts by created|date:"Y" as postyears %}
     {% for created in postyears %}
@@ -16,7 +20,7 @@ class="current"
             <li>{{ created.grouper }}
             <ul>
                 {% for object in created.list %}
-                <li>[{{ object.created|date:"m-d" }}] <a href="/blog/{{ object.created|date:"Y" }}/{{ object.slug }}">{{object.title}}</a></li>
+                <li>[{{ object.created|date:"m-d" }}] <a href="/archive/{{ object.created|date:"Y" }}/{{ object.slug }}">{{object.title}}</a></li>
                 {% endfor %}
             </ul></li>
         {% endfor %}

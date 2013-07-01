@@ -1,17 +1,5 @@
 {% extends "base.html" %}
 
-{% if is_archive %}
-    IS ARCHIVE
-    {% block archive %}
-    class="current"
-    {% endblock %}
-{% else %}
-    IS NOT ARCHIVE
-    {% block blog %}
-    class="current"
-    {% endblock %}
-{% endif %}
-
 {% block content %}
 
 <div class="blogpost">

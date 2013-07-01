@@ -4,25 +4,23 @@ from django.core.exceptions import ObjectDoesNotExist
 
 def article_view(request, year=None, slug=None):
     if year == None:
-        post = Post.objects.all().order_by('-created') # maybe flip first?
-        return render_to_response("post.html", dict(post=post, is_archive=False))
-    try:
-        min_date = "%s-01-01" % year
-        max_date = "%s-12-31" % year
-        post = Post.objects.all().filter(created__lte=max_date,created__gte=min_date).get(slug=slug)
-        return render_to_response("post.html", dict(post=post, is_archive=True))
-    #except ObjectDoesNotExist:
-    #    return render_to_response("404.html")
-    #except DoesNotExist:
-    except:
-        return render_to_response("404.html")
+        post = Post.objects.all().order_by('-created')[0]
+        return render_to_response("post.html", dict(post=post, page="blog"))
+    else:
+        try:
+            min_date = "%s-01-01" % year
+            max_date = "%s-12-31" % year
+            post = Post.objects.all().filter(created__lte=max_date, created__gte=min_date).get(slug=slug)
+            return render_to_response("post.html", dict(post=post, page="archive"))
+        except:
+            return render_to_response("404.html", dict(resource="blog post"))
 
 def archive_view(request):
     tags = Post.tags.all()
     posts = Post.objects.all().order_by('-created')
-    return render_to_response("archive.html", dict(tags=tags, posts=posts))
+    return render_to_response("archive.html", dict(tags=tags, posts=posts, page="archive"))
 
-def tag_view(request):
+def tag_view(request, tag):
     posts = Post.objects.all().order_by('-created').filter(tags__name=tag)
     tags = Post.tags.all()
-    return render_to_response("archive_by_tag.html", dict(tags=tags, posts=posts))
+    return render_to_response("tag.html", dict(tag=tag, tags=tags, posts=posts, page="archive"))
