@@ -1,0 +1,93 @@
+* {padding:0; margin:0;}
+html,
+body {height:100%;}
+/*
+h1, h2, h3 {font-family:Arial, Helvetica, sans-serif; }
+h1{font-size:1.25em;}
+h2{font-size:1em}
+*/
+ul {list-style:none;}
+p {font-size: 1.4em; line-height:1.5em;}
+/*
+a {color:blue; text-decoration:none;}
+a:hover, a:focus {text-decoration: underline; color:#000;}
+*/
+a {text-decoration:none; color:blue;}
+a :hover {text-decoration:underline;}
+body {background: #fdfdf8 url(images/header44.gif) repeat-x; font-family:sans-serif;}
+#page_wrapper,
+#footer {max-width:960px;}
+#page_wrapper {max-width:960px; min-height:100%; height:auto !important; height:100%; margin:0 auto -35px;}
+#header {height:34px;}
+#header p {display:block; float:left; font:bold 2.1em serif;}
+#header p a {color:#fff; text-decoration:none;}
+#header p a:hover {text-decoration:underline;}
+#navigation {float:right;}
+#navigation a {color:#ccc;}
+#navigation li {display:inline; font-size:1.2em;}
+#navigation li a {display:block; text-decoration:none; float:left; line-height:30px; padding:5px 25px 0 25px; height:34px;}
+#navigation li a:hover {color:#fff; text-decoration:underline;}
+#navigation li.current a {background:url(images/nav_current.png) center bottom no-repeat; color:#fff;}
+#content_wrapper {padding:18px 0; clear:both;}
+.largeimg {overflow:auto}
+.post header {margin-bottom:.2em;}
+h3 {font-size:1.6em; color:#000; margin-bottom:5px;}
+.post header .postinfo {font-size:1.1em; color:#777;}
+.post footer {border: solid 1px; border-color:#ddd #fff #ddd #fff; padding:3px; font-size:1.1em; color:#777;}
+.post footer {height:15px; line-height:15px;}
+.post footer span {margin:0 65px 0 0;}
+.post footer a {color:#333;}
+.post {margin-bottom:20px;}
+.post ul, .post ol {font-size:1.2em; line-height:18px; margin-bottom:15px; padding-left:20px;}
+h4 {font-size:1.4em; color:#333;}
+.post h2 {display:block; font-size:1.8em; color:#000;}
+.post a:hover {color:#000; text-decoration:underline;}
+#footer_spacer,
+#footer {height:35px; margin:0 auto; font-size:1.4em;}
+.sample h3:hover,
+.sample p:hover {background-color:#dce7fb;}
+.sample {clear:both; min-height:140px;}
+.sample + .sample {margin-top:16px; border-top: 1px dotted #666; padding-top:16px;}
+.caption{font-size:1.3em; text-align: center; margin: 6px 0px 0px 0px; font-style:italic;}
+.thumb {float: left; padding: 0px 25px; background-color:#fdfdf8;}
+.sample a:hover {text-decoration:underline;}
+/*
+#footer {padding-bottom:8px;}
+*/
+
+/*
+.post + .post {margin-top:32px;}
+aside {float: right; display: block; font-size:1.6em; margin-left: 2em; padding: .5em 0 2em 0; width:300px;}
+aside h2 {font:bold "Trebuchet MS", Arial, Helvetica, sans-serif; color:#000; margin-bottom:.2em; margin-top:.4em; display:inline-block;}
+aside p {size:1.6em; line-height:1.2em; padding-top:.3em; padding-bottom:0.3em;}
+aside ul {margin-bottom:.5em; padding: 0;}
+aside li {line-height:1.8em; background:url(images/ulli.png) left .7em no-repeat; padding:0 0 0 1em; display:block; color:#666; float:left; width:280px; text-align:left;}
+aside ul ul {margin-left: .1em;}
+#sidebarwrap ul li {display:block; background:url(images/ulli.png) 0 6px no-repeat; padding-left:25px; margin-bottom:10px;}
+#resume {margin:15px 0px; text-align:justify; font-family: Times, Serif; font-size: 1.5em; color: #000;}
+#resume header{border-bottom: 0px solid #000; margin-bottom: 15px;}
+#resume	ul {margin:0; padding: 0; list-style: inside;}
+#resume	li {margin:0 0 4px 0; list-style-type: circle;}
+#resume	h3 {margin:20px 0 2px 4px; font-weight: 550; font-family: Times, Serif;}
+#resume	h4 {margin:12px 0 4px 0; font-size:1.1em; font-weight:500;}
+#resume	article {position:relative; padding: 5px; border-top:1px solid #000; background-color: white; -webkit-transition: background-color 300ms; -moz-transition: background-color 300ms; -o-transition: background-color 300ms; transition: background-color 300ms;}
+#resume	article:hover {background-color:#DEECFA;}
+#resume	header {position:relative; top:5px; left:0; margin: 2px; font-style: italic;}
+#resume	.desc {margin-left:20px;}
+#resume	.first {border-width: 2px;}
+#resume .top {border-width: 0px;}
+#resume h5 {color:#000; font-style:italic; border-bottom:2px solid #000; margin-bottom:0px; padding-bottom:4px; font-weight:300; font-size:1em;}
+#resume strong {font-weight: 700;}
+form p{padding-top:10px;}
+form label{float:left;width:50px;}
+form input{border:1px solid #666; width:200px; background-color:#dce7fb;}
+form input:hover, input:focus {background-color:#b9d1fc;}
+form textarea{background-color:#dce7fb; border:1px solid #666; width:800px; float:center;}
+form textarea:hover, textarea:focus {background-color:#b9d1fc;}
+form button {margin-top:10px; width: 69px; border:1px solid #666; background: #ddd;}
+#buttongroup {margin-left:50px;}
+#buttongroup :hover, #buttongroup :focus {background-color:#b9d1fc;}
+.errorlist li {margin-left:50px; margin-top:12px;color:#f00;}
+.unstyledlist li {list-style-type: none;}
+#head {font-size: 1.2em; font-color:#000; background-color:#fbec5d; padding:6px;}
+*/
