@@ -5,7 +5,7 @@
 <h4>Categories</h4>
 <ul id="tags">
     {% for tag in tags %}
-    <li><a href="/archive/tags/{{ tag }}">{{ tag }}</a></li>
+    <li><a href="/archive/{{ tag }}">{{ tag }}</a></li>
     {% endfor %}
 </ul>
 
@@ -20,7 +20,7 @@
             <li>{{ created.grouper }}
             <ul>
                 {% for object in created.list %}
-                <li>[{{ object.created|date:"m-d" }}] <a href="/archive/{{ object.created|date:"Y" }}/{{ object.slug }}">{{object.title}}</a></li>
+                <li>[{{ object.created|date:"jS" }}] <a href="/archive/{{ object.created|date:"Y" }}/{{ object.slug }}">{{object.title}}</a></li>
                 {% endfor %}
             </ul></li>
         {% endfor %}
