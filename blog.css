@@ -15,6 +15,7 @@ a:hover, a:focus {text-decoration: underline; color:#000;}
 a {text-decoration:none; color:blue;}
 a :hover {text-decoration:underline;}
 body {background: #fdfdf8 url(images/header44.gif) repeat-x; font-family:sans-serif;}
+h2 {font-size:1.6em; margin-bottom:12px;}
 #page_wrapper,
 #footer {max-width:960px;}
 #page_wrapper {max-width:960px; min-height:100%; height:auto !important; height:100%; margin:0 auto -35px;}
@@ -31,17 +32,18 @@ body {background: #fdfdf8 url(images/header44.gif) repeat-x; font-family:sans-se
 #content_wrapper {padding:18px 0; clear:both;}
 .largeimg {overflow:auto}
 .post header {margin-bottom:.2em;}
-h3 {font-size:1.6em; color:#000; margin-bottom:5px;}
-.post header .postinfo {font-size:1.1em; color:#777;}
+h3 {font-size:1.4em; color:#333; margin-bottom:0px;}
 .post footer {border: solid 1px; border-color:#ddd #fff #ddd #fff; padding:3px; font-size:1.1em; color:#777;}
 .post footer {height:15px; line-height:15px;}
 .post footer span {margin:0 65px 0 0;}
 .post footer a {color:#333;}
 .post {margin-bottom:20px;}
-.post ul, .post ol {font-size:1.2em; line-height:18px; margin-bottom:15px; padding-left:20px;}
+.post ul {font-size:1.2em; line-height:32px; padding-left:20px;}
+.post .postinfo {color:#777; font-size:1em;}
+.post p {font-size:1.4em;}
 h4 {font-size:1.4em; color:#333;}
 .post h2 {display:block; font-size:1.8em; color:#000;}
-.post a:hover {color:#000; text-decoration:underline;}
+.post a:hover {text-decoration:underline;}
 #footer_spacer,
 #footer {height:35px; margin:0 auto; font-size:1.4em;}
 .sample h3:hover,
