@@ -9,6 +9,11 @@
     {% endfor %}
 </ul>
 
+{% if tag %}
+<h2>Showing only posts under <i>{{ tag }}</i>:</h2>
+<span><a href="/archive/">Remove filter</a></span>
+{% endif %}
+
 <h4>By date:</h4>
 <ul id="collapser">
     {% regroup posts by created|date:"Y" as postyears %}
@@ -20,7 +25,7 @@
             <li>{{ created.grouper }}
             <ul>
                 {% for object in created.list %}
-                <li>[{{ object.created|date:"jS" }}] <a href="/archive/{{ object.created|date:"Y" }}/{{ object.slug }}">{{object.title}}</a></li>
+                <li>[{{ object.created|date:"Y-m-d" }}] <a href="/archive/{{ object.created|date:"Y" }}/{{ object.slug }}">{{object.title}}</a></li>
                 {% endfor %}
             </ul></li>
         {% endfor %}
@@ -35,11 +40,13 @@
     <script type="text/javascript" src="http://www.cheddarcode.com/g/js/jquery.collapse.js"/></script>
     <script type="text/javascript">
         $(document).ready(
-            $('#collapser').jqcollapse({
-               slide: false,
-               speed: 1000,
-               easing: false 
-            })
+            function(){
+                $('#collapser').jqcollapse({
+                   slide: false,
+                   speed: 1000,
+                   easing: false
+                })
+            }
         );
     </script>
 {% endblock %}

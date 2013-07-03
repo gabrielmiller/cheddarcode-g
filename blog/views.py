@@ -26,4 +26,4 @@ def archive_view(request):
 def tag_view(request, tag):
     posts = Post.objects.all().order_by('-created').filter(tags__name=tag)
     tags = Post.tags.all()
-    return render_to_response("tag.html", dict(tag=tag, tags=tags, posts=posts, page="archive", year=today))
+    return render_to_response("archive.html", dict(tag=tag, tags=tags, posts=posts, page="archive", year=today))

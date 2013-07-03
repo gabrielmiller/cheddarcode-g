@@ -2,18 +2,17 @@
 
 {% block content %}
 
-<div class="blogpost">
-<header>
+<div class="post">
     <h3>{{ post.title }}</h3>
-    <p class="postdate">
-        <i>{{ post.created }}</i>
+    <p class="postinfo">
+        <i>{{ post.created|date:"F jS, Y" }}</i>
     </p>
-    <p class="posttags">
-        {% for tag in post.tags.all %}<a href="/archive/{{tag}}">{{tag}}</a>{% if not forloop.last %}, {% endif %}{% empty %}No categories{% endfor %}
+    <p class="postinfo">
+        Tags: {% for tag in post.tags.all %}<a href="/archive/{{tag}}">{{tag}}</a>{% if not forloop.last %}, {% endif %}{% empty %}No categories{% endfor %}
     </p>
-</header>
 
-{{ post.body|safe }}
+    {{ post.body|safe }}
+
 </div>
 
 <div class="comments" id="disqus_thread"></div>
