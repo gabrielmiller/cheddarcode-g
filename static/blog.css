@@ -31,6 +31,7 @@ h2 {font-size:1.6em; margin-bottom:12px;}
 #navigation li.current a {background:url(images/nav_current.png) center bottom no-repeat; color:#fff;}
 #content_wrapper {padding:18px 0; clear:both;}
 #content_wrapper a:hover {text-decoration:underline;}
+ul#tags li {display:inline; margin:5px;}
 .largeimg {overflow:auto}
 .post header {margin-bottom:.2em;}
 h3 {font-size:1.4em; color:#333; margin-bottom:0px;}
