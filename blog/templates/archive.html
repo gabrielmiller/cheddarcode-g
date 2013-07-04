@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h4>Categories</h4>
+<h4>Categories:</h4>
 <ul id="tags">
     {% for tag in tags %}
     <li><a href="/archive/{{ tag }}">{{ tag }}</a></li>
@@ -10,7 +10,7 @@
 </ul>
 
 {% if tag %}
-<h3>[<a href="/archive/">X</a>] Showing only posts under <i>{{ tag }}</i>:</h3>
+<h4>[<a href="/archive/">X</a>] Showing only posts under <i>{{ tag }}</i>:</h4>
 {% endif %}
 
 <h4>By date:</h4>
