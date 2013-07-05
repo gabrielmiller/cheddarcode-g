@@ -18,7 +18,7 @@ body {background: #fdfdf8 url(images/header44.gif) repeat-x; font-family:sans-se
 h2 {font-size:1.6em; margin-bottom:12px;}
 #page_wrapper,
 #footer {max-width:960px;}
-#page_wrapper {max-width:960px; min-height:100%; height:auto !important; height:100%; margin:0 auto -35px;}
+#page_wrapper {padding-left:8px; padding-right:8px; max-width:960px; min-height:100%; height:auto !important; height:100%; margin:0 auto -35px;}
 #header {height:34px;}
 #header p {display:block; float:left; font:bold 2.1em serif;}
 #header p a {color:#fff; text-decoration:none;}
