@@ -5,33 +5,42 @@ ul {list-style:none;}
 p {font-size: 1.4em; line-height:1.5em;}
 a {text-decoration:none; color:blue;}
 a :hover {text-decoration:underline;}
-/*
-body {background: #fdfdf8 url(images/header44.gif) repeat-x; font-family:sans-serif;}
-*/
 body {background: #fdfdf8; font-family:sans-serif;}
 h2 {font-size:1.6em; margin-bottom:12px;}
-#page_wrapper,
+#header,
+#content_wrapper,
 #footer {max-width:960px;}
-#page_wrapper {padding-left:8px; padding-right:8px; max-width:960px; min-height:100%; height:auto !important; height:100%; margin:0 auto -35px;}
-/*
-#header {height:34px;}
-*/
-#navigation, 
-#header {background-color:#333;}
-#header {padding-bottom:5px; height:34px;}
-#header p {display:block; float:left; font:bold 2.1em serif;}
+#page_wrapper {min-height:100%; height:auto !important; height:100%; margin-bottom:-35px;}
+#header,
+#content_wrapper,
+#footer {padding-left: 8px; padding-right:8px; margin:0 auto;}
+#header_color {background-color:#333;}
+#header {padding-bottom:5px;}
+@media (min-width: 640px){
+    #header {height:34px;}
+    #header p {float: left;}
+    #navigation {float:right;}
+    #navigation li {display:inline;}
+    #navigation li a {padding:5px 25px 0 25px;}
+    #navigation li.current a {background:url(images/nav_current.png) center bottom no-repeat;}
+}
+@media (max-width: 640px){
+    #header {height:151px;}
+    #header p {float: none;}
+    #navigation {float: left;}
+    #navigation li {display:block;}
+    #navigation li a {padding:5px 0px 0 0px;}
+    #navigation li.current a {background:none;}
+}
+#header p {display:block; font:bold 2.1em serif; white-space:nowrap;}
 #header p a {color:#fff; text-decoration:none;}
 #header p a:hover {text-decoration:underline;}
-#navigation {float:right;}
 #navigation a {color:#ccc;}
-#navigation li {display:inline; font-size:1.2em;}
-#navigation li a {display:block; text-decoration:none; float:left; line-height:30px; padding:5px 25px 0 25px; height:34px;}
+#navigation li {font-size:1.2em;}
+#navigation li a {display:block; text-decoration:none; float:left; line-height:30px; height:34px;}
 #navigation li a:hover {color:#fff; text-decoration:underline;}
-#navigation li.current a {background:url(images/nav_current.png) center bottom no-repeat; color:#fff;}
-/*
-#content_wrapper {padding:18px 0; clear:both;}
-*/
-#content_wrapper {padding:18px 0; clear:both; border-top:5px solid #9c4;}
+#navigation li.current a { color:#fff;}
+#content_color {padding-top:18px; clear:both; border-top:5px solid #66CD00;}
 #content_wrapper a:hover {text-decoration:underline;}
 ul#tags li {display:inline; margin:5px;}
 .largeimg {overflow:auto}
