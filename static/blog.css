@@ -16,7 +16,7 @@ h2 {font-size:1.6em; margin-bottom:12px;}
 #footer {padding-left: 8px; padding-right:8px; margin:0 auto;}
 #header_color {background-color:#333;}
 #header {padding-bottom:5px;}
-@media (min-width: 640px){
+@media (min-width: 800px){
     #header {height:34px;}
     #header p {float: left;}
     #navigation {float:right;}
@@ -24,7 +24,7 @@ h2 {font-size:1.6em; margin-bottom:12px;}
     #navigation li a {padding:5px 25px 0 25px;}
     #navigation li.current a {background:url(images/nav_current.png) center bottom no-repeat; text-decoration:none;}
 }
-@media (max-width: 640px){
+@media (max-width: 800px){
     #header {height:151px;}
     #header p {float: none;}
     #navigation {float: left;}
