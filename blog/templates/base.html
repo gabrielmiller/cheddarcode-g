@@ -1,54 +1,56 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
 <head>
     <link rel="icon" href="http://www.cheddarcode.com/g/favicon.ico">
-    <script type="text/javascript" src="http://www.cheddarcode.com/media/js/shCore.js"></script>  
-    <script type="text/javascript" src="http://www.cheddarcode.com/media/js/shBrushPython.js"></script>  
     <script type="text/javascript" src="http://www.cheddarcode.com/g/js/jquery.js"></script>
-    <script type="text/javascript">SyntaxHighlighter.all();</script>  
-    <link type="text/css" rel="stylesheet" href="http://www.cheddarcode.com/media/css/shCoreDefault.css"/>  
+    <link rel="stylesheet" type="text/css" href="http://localhost/~gabe/chddrcd/blog.css">
+    <!--
     <link rel="stylesheet" type="text/css" href="http://www.cheddarcode.com/g/css/blog.css">
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:300" rel="stylesheet" type="text/css">
+    -->
+    {% block includes %}
+    {% endblock %}
 	<title>L. Gabriel Miller</title>
     <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-35235361-1']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
+    /*
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35235361-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    */
+    </script>
 </head>
 <body>
 
-<div id="pagewrapper">
-<section id="header">
-	<p id="title">L. Gabriel Miller</p>
-	<nav id="navigation">
-		<ul><li {%block about%}{%endblock%}class="about"><a href="http://www.cheddarcode.com/g">About</a></li>
-			<li {%block blog%}{%endblock%}class="blog"><a href="http://www.cheddarcode.com/g/blog">Blog</a></li>
-			<li {%block portfolio%}{%endblock%} class="portfolio"><a href="http://www.cheddarcode.com/g/portfolio">Portfolio</a></li>
-			<li  {%block resume%}{%endblock%}class="resume"><a href="http://www.cheddarcode.com/g/resume">Resume</a></li>
-			<li  {%block contact%}{%endblock%}class="contact"><a href="http://www.cheddarcode.com/g/contact">Contact</a></li>
-		</ul>
-	</nav>
-</section>
+<div id="page_wrapper">
+    <div id="header_color">
+        <div id="header">
+            <p><a href="/">L. Gabriel Miller</a></p>
+            <div id="navigation">
+                <ul>
+                    <li class="archive{%if page == "archive" %} current{%endif%}"><a href="/archive">Archive</a></li>
+                    <li class="projects{%if page == "projects" %} current{%endif%}"><a href="/projects">Projects</a></li>
+                    <li class="abouts{%if page == "about" %} current{%endif%}"><a href="/about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 {% block sidebar %}
 {% endblock %}
 
-<div id="contents">
-    <div id="main{%block blog2%}{%endblock%}">
-
-                {% block content %}
-                {% endblock %}
-
+    <div id="content_color">
+        <div id="content_wrapper">
+        {% block content %}
+        {% endblock %}
+        </div>
     </div>
-<div class="clear"></div>
+    <div id="footer_spacer"></div>
 </div>
-<div id="pagefooter">2012 L. Gabriel Miller</div>
+<div id="footer">&copy; Copyright {{ year }} L. Gabriel Miller</div>
 </body>
 </html>
