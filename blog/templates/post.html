@@ -1,24 +1,30 @@
 {% extends "base.html" %}
 
-{% block blog %}
-class="current"
-{% endblock %}
-
-{%block blog2%}blog{%endblock%}
-
 {% block content %}
 
-<article class="post">
-<header>
-<h3>{{ post.title }}</h3>
-<p class="postinfo">Published on <time>{{ post.created }}</time> under {% for tag in post.tags.all %}<a href="/g/blog/tag/{{tag}}">{{tag}}</a>{% if not forloop.last %}, {% endif %}{% empty %} no categories{% endfor %}
-</p>
-</header>
-<p>{{ post.body|safe }}</p>
-</article>
+<div class="post">
+    <h3>{{ post.title }}</h3>
+    <p class="postinfo">
+        <i>{{ post.created|date:"F jS, Y" }}</i>
+    </p>
+    <p class="postinfo">
+        Tags: {% for tag in post.tags.all %}<a href="/archive/{{tag}}">{{tag}}</a>{% if not forloop.last %}, {% endif %}{% empty %}No categories{% endfor %}
+    </p>
+
+    {{ post.body|safe }}
+
+</div>
+
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    //Disqus js will go here
+</script>
 
 {% endblock %}
 
-{% block sidebar %}
-{% include "sidebar.html" %}
+{% block includes %}
+    <script type="text/javascript" src="http://www.cheddarcode.com/media/js/shCore.js"></script>
+    <script type="text/javascript" src="http://www.cheddarcode.com/media/js/shBrushPython.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+    <link type="text/css" rel="stylesheet" href="http://www.cheddarcode.com/media/css/shCoreDefault.css"/>
 {% endblock %}

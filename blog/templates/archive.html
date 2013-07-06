@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h4>Categories:</h4>
+<ul id="tags">
+    {% for tag in tags %}
+    <li><a href="/archive/{{ tag }}">{{ tag }}</a></li>
+    {% endfor %}
+</ul>
+
+{% if tag %}
+<h4>[<a href="/archive/">X</a>] Showing only posts under <i>{{ tag }}</i>:</h4>
+{% endif %}
+
+<h4>By date:</h4>
+<ul id="collapser">
+    {% regroup posts by created|date:"Y" as postyears %}
+    {% for created in postyears %}
+        <li>{{ created.grouper }}
+        <ul>
+        {% regroup created.list by created|date:"F" as postmonths %}
+            {% for created in postmonths %}
+            <li>{{ created.grouper }}
+            <ul>
+                {% for object in created.list %}
+                <li>[{{ object.created|date:"Y-m-d" }}] <a href="/archive/{{ object.created|date:"Y" }}/{{ object.slug }}">{{object.title}}</a></li>
+                {% endfor %}
+            </ul></li>
+        {% endfor %}
+        </ul></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}   
+
+{% block includes %}
+    <script type="text/javascript" src="http://www.cheddarcode.com/g/js/jquery.easing.js"/></script>
+    <script type="text/javascript" src="http://www.cheddarcode.com/g/js/jquery.collapse.js"/></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function(){
+                $('#collapser').jqcollapse({
+                   slide: false,
+                   speed: 1000,
+                   easing: false
+                })
+                $('#collapser li').children().slice(0,10).show();
+            }
+        );
+    </script>
+{% endblock %}
